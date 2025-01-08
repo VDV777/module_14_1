@@ -122,6 +122,14 @@ if __name__ == '__main__':
     # cursor.execute('''
     # DELETE FROM Users WHERE id % 3 = 0
     # ''')
+    cursor.execute('''
+    SELECT username, email, age, balance FROM Users WHERE age != 60
+    ''')
+    users = cursor.fetchall()
+
+    for user in users:
+        print(user)
+        
     connection.commit()
     connection.close()
     # executor.start_polling(dp, skip_updates=True)
